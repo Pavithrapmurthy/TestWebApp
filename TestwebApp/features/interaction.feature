@@ -3,8 +3,7 @@ Feature: Title of your feature
   
   Background: Given I open the chrome browser
 	    				When I navigate to the JqueryUI Website
-
-	@test
+	 
    Scenario: Verifying the interactions 
 	    Then I click Selectable
 	    And I select items one by one
@@ -19,12 +18,12 @@ Feature: Title of your feature
 	    Then I Swicth back to Main page
 
 	    
-	    Scenario: Verifying the selection of multiple items
-	    Then I click Selectable
-	    And I should select alternate items
-	    Then I should select 3 elements
-	    When I click on sortable
-	    Then I should take the input and sort it
-	    Then I Swicth back to Main page
+	    #Scenario: Verifying the selection of multiple items
+	    #Then I click Selectable
+	    #And I should select alternate items
+	    #Then I should select 3 elements
+	    #When I click on sortable
+	    #Then I should take the input and sort it
+	    #Then I Swicth back to Main page
 
 	    

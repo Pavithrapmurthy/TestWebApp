@@ -5,12 +5,12 @@ import java.util.List;
 import java.util.Scanner;
 import java.util.concurrent.TimeUnit;
 
+import org.junit.runner.RunWith;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
-import org.testng.annotations.Test;
 
 import base.Base;
 import io.cucumber.java.After;
@@ -19,14 +19,15 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import io.cucumber.junit.Cucumber;
 
-
+@RunWith(Cucumber.class)
 public class Interactions extends Base{
 	
 	WebDriver driver;
 	List<WebElement> li_elements,grid_elements;
 	List<WebElement> sort_elements;
-	
+
 	@Before(order=1)
 	@Given("I open the chrome browser")
 	public void i_open_the_chrome_browser()
@@ -36,7 +37,8 @@ public class Interactions extends Base{
 		 
 		 
 	 }
-	 @Before(order=2)
+
+	@Before(order=2)
 	 @When("I navigate to the JqueryUI Website")
 	 public void openWebsite()
 	 {
@@ -73,7 +75,8 @@ public class Interactions extends Base{
 		 
 	 }
 	 
-	 @When("I select Display as grid example")
+	 @SuppressWarnings("deprecation")
+	@When("I select Display as grid example")
 	 public void I_select_Display_as_grid_example()
 	 {
 		 driver.switchTo().defaultContent();
@@ -82,7 +85,8 @@ public class Interactions extends Base{
 		 driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
 	 }
 	 
-	 @Then("I select all the elements in the grid")
+	 @SuppressWarnings("deprecation")
+	@Then("I select all the elements in the grid")
 	 public void Then_I_select_all_the_elements_in_the_grid()
 	 {
 		 PageObjects PO = new PageObjects(driver);
@@ -202,7 +206,8 @@ public class Interactions extends Base{
 	   public void I_should_take_the_input() throws InterruptedException
 	   {
 		   new Actions(driver).keyDown(Keys.ARROW_DOWN).perform();
-		   Scanner sc = new Scanner(System.in);
+		   @SuppressWarnings("resource")
+		Scanner sc = new Scanner(System.in);
 		   System.out.println("Enter 7 sequence number");
 		   for(int i = 1; i<=7; i++)
 		   {
@@ -222,7 +227,7 @@ public class Interactions extends Base{
 		 Thread.sleep(2000);
 	 }
 	 @After
-	 public void closebrowser()
+	public void closebrowser()
 	 {
 		  driver.quit();
 	 }
